@@ -1,0 +1,11 @@
+life-sheet-backend/
+node_modules/
+dist/
+build/
+
+.asar
+
+.DS_Store
+
+.env
+.env.local

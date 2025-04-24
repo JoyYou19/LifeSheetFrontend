@@ -1,0 +1,88 @@
+{
+  "name": "life-sheeting",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "http://localhost:8080",
+  "_falseProxy": "https://lifesheet-production.up.railway.app",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.6.0",
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@tanstack/react-table": "^8.21.2",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "active-win": "^9.0.0",
+    "autoprefixer": "^10.4.20",
+    "firebase": "^10.14.0",
+    "postcss": "^8.4.47",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.5.0",
+    "react-scripts": "5.0.1",
+    "tailwindcss": "^3.4.13",
+    "web-vitals": "^2.1.4"
+  },
+  "main": "main.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "dist": "electron-builder",
+    "electron": "electron . --no-sandbox",
+    "go-server": "cd life-sheet-backend && go run .",
+    "dev": "concurrently \"npm:start\" \"npm:electron\"",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1",
+    "electron": "^32.1.2",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.yourcompany.lifesheeter",
+    "productName": "Life Sheeter",
+    "copyright": "Copyright ©2024",
+    "files": [
+      "build/**/*",
+      "main.js"
+    ],
+    "extraMetadata": {
+      "main": "main.js"
+    },
+    "directories": {
+      "buildResources": "assets"
+    },
+    "extraFiles": [
+      "public/**/*"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}
