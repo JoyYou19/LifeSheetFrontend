@@ -25,6 +25,22 @@ const ProductivityPercentage = () => {
     );
   };
 
+  const formatCleanDuration = (durationStr) => {
+    // Handle cases like "17h52m17.231967s" or "1h30m0s"
+    const matches = durationStr.match(/(\d+)h(\d+)m[\d.]*s/);
+
+    if (!matches) {
+      console.warn("Unrecognized duration format:", durationStr);
+      return durationStr; // fallback to original if format doesn't match
+    }
+
+    const hours = parseInt(matches[1]);
+    const minutes = parseInt(matches[2]);
+
+    // Format as "Xh Ym" (only show hours if present)
+    return `${hours > 0 ? `${hours}h ` : ""}${minutes}m`.trim();
+  };
+
   // Fetch productivity data from the backend
   useEffect(() => {
     const fetchProductivityData = async () => {
@@ -158,13 +174,13 @@ const ProductivityPercentage = () => {
           <div className="bg-black p-3 rounded-lg">
             <div className="text-gray-400">Productive Time</div>
             <div className="text-white font-medium">
-              {productivityData.total_productive_time}
+              {formatCleanDuration(productivityData.total_productive_time)}
             </div>
           </div>
           <div className="bg-black p-3 rounded-lg">
             <div className="text-gray-400">Awake Time</div>
             <div className="text-white font-medium">
-              {productivityData.total_awake_time}
+              {formatCleanDuration(productivityData.total_awake_time)}
             </div>
           </div>
           <div className="bg-black p-3 rounded-lg">
@@ -176,7 +192,7 @@ const ProductivityPercentage = () => {
           <div className="bg-black p-3 rounded-lg">
             <div className="text-gray-400">Sleep Duration</div>
             <div className="text-white font-medium">
-              {productivityData.sleep_duration}
+              {formatCleanDuration(productivityData.sleep_duration)}
             </div>
           </div>
         </div>
