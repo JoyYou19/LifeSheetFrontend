@@ -33,7 +33,7 @@
       "sizes": "1125x2436",
       "type": "image/png",
       "form_factor": "narrow"
-    },
+    }
   ],
   "start_url": ".",
   "display": "standalone",
