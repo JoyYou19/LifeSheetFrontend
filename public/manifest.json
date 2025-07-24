@@ -29,9 +29,9 @@
   ],
   "screenshots": [
     {
-      "src": "icons/apple-splash-1125-2436.png",
+      "src": "icons/apple-splash-1125-2436.jpg",
       "sizes": "1125x2436",
-      "type": "image/png",
+      "type": "image/jpg",
       "form_factor": "narrow"
     }
   ],
